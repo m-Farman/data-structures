@@ -2,5 +2,5 @@
 This project contains various question on data structures.
 
 
-Feely give any suggestion or improvment. :) Happy Coding :)
+Freely give any suggestion or improvment. :) Happy Coding :)
 
