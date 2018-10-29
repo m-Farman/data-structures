@@ -42,3 +42,13 @@ public class ReverseBlockOfKNodesInList {
 	}
 
 }
+
+/*
+ * -----------------------------------------------
+ *  Output
+ *  Before Reversing
+	[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+	After Reversing
+	[4, 3, 2, 1, 8, 7, 6, 5, 10, 9]
+
+ */
