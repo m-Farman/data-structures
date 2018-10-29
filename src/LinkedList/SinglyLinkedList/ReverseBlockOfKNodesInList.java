@@ -1,7 +1,5 @@
 package LinkedList.SinglyLinkedList;
 
-import java.util.Objects;
-
 import LinkedList.LinkedListUtil;
 import LinkedList.Node;
 
