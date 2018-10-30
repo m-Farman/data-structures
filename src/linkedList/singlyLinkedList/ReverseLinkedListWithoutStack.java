@@ -1,7 +1,7 @@
-package LinkedList.SinglyLinkedList;
+package linkedList.singlyLinkedList;
 
-import LinkedList.LinkedListUtil;
-import LinkedList.Node;
+import linkedList.LinkedListUtil;
+import linkedList.Node;
 
 public class ReverseLinkedListWithoutStack {
 

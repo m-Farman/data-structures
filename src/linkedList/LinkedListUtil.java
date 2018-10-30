@@ -1,4 +1,4 @@
-package LinkedList;
+package linkedList;
 
 public class LinkedListUtil {
 
@@ -30,11 +30,29 @@ public class LinkedListUtil {
 				head = tmp = node;
 			} else {
 				tmp.setNext(node);
-				tmp=tmp.getNext();
+				tmp = tmp.getNext();
 			}
 		}
 
 		return head;
 	}
 
+	public static Node createCircularLinkedList(int size) {
+
+		Node head = null, tmp = null;
+		for (int i = 1; i <= size; i++) {
+			Node node = new Node();
+			node.setData(i);
+			node.setNext(null);
+			if (i == 1) {
+				head = tmp = node;
+			} else {
+				tmp.setNext(node);
+				tmp = tmp.getNext();
+			}
+		}
+		tmp.setNext(head);
+
+		return head;
+	}
 }
