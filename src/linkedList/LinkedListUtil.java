@@ -55,4 +55,16 @@ public class LinkedListUtil {
 
 		return head;
 	}
+
+	public static Node findMiddleNode(Node head) {
+		if (head == null) {
+			return null;
+		}
+		Node slowPtr = head, fastPtr = head.getNext();
+		while (fastPtr != null && fastPtr.getNext() != null) {
+			slowPtr = slowPtr.getNext();
+			fastPtr = fastPtr.getNext().getNext();
+		}
+		return slowPtr;
+	}
 }
