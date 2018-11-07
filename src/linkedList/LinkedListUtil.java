@@ -1,5 +1,7 @@
 package linkedList;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class LinkedListUtil {
 
 	public static String toString(Node head) {
@@ -23,9 +25,23 @@ public class LinkedListUtil {
 
 		Node head = null, tmp = null;
 		for (int i = 1; i <= size; i++) {
-			Node node = new Node();
-			node.setData(i);
-			node.setNext(null);
+			Node node = new Node(i, null);
+			if (i == 1) {
+				head = tmp = node;
+			} else {
+				tmp.setNext(node);
+				tmp = tmp.getNext();
+			}
+		}
+
+		return head;
+	}
+
+	public static Node createRandomLinkedList(int size, int dataMaxValue) {
+		dataMaxValue = dataMaxValue == 0 ? size : dataMaxValue;
+		Node head = null, tmp = null;
+		for (int i = 1; i <= size; i++) {
+			Node node = new Node(ThreadLocalRandom.current().nextInt(1, dataMaxValue), null);
 			if (i == 1) {
 				head = tmp = node;
 			} else {
@@ -53,9 +69,7 @@ public class LinkedListUtil {
 
 		Node head = null, tmp = null;
 		for (int i = 1; i <= size; i++) {
-			Node node = new Node();
-			node.setData(i);
-			node.setNext(null);
+			Node node = new Node(i, null);
 			if (i == 1) {
 				head = tmp = node;
 			} else {
