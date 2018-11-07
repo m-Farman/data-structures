@@ -37,6 +37,18 @@ public class LinkedListUtil {
 		return head;
 	}
 
+	public static Node createDuplicateDataLinkedList(int size) {
+
+		Node head = createDummyLinkedList(size);
+		Node tmp = head;
+		while (tmp.getNext() != null) {
+			tmp = tmp.getNext();
+		}
+		tmp.setNext(createDummyLinkedList(size));
+
+		return head;
+	}
+
 	public static Node createCircularLinkedList(int size) {
 
 		Node head = null, tmp = null;
