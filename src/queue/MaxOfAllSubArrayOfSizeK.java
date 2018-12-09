@@ -3,7 +3,6 @@ package queue;
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Queue;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class MaxOfAllSubArrayOfSizeK {
@@ -16,7 +15,6 @@ public class MaxOfAllSubArrayOfSizeK {
 		System.out.println("Input arrays is :\n" + Arrays.toString(a));
 		a = findMaxInWindow(a, 3);
 		System.out.println("Max sum is :\n" + Arrays.toString(a));
-
 	}
 
 	private static int[] findMaxInWindow(int[] a, int k) {
