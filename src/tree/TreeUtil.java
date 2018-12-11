@@ -1,7 +1,9 @@
 package tree;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
+import java.util.stream.Collectors;
 
 public class TreeUtil {
 
@@ -38,5 +40,9 @@ public class TreeUtil {
 			q.offer(right);
 		}
 		return root;
+	}
+	
+	public static <E> String toString(List<TreeNode<E>> list) {
+		return list.stream().map(n -> String.valueOf(n.getData())).collect(Collectors.joining(", ", "[", "]"));
 	}
 }
