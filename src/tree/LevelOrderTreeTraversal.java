@@ -10,14 +10,17 @@ public class LevelOrderTreeTraversal {
 	public static void main(String[] args) {
 		TreeNode<Integer> root = TreeUtil.createTreeOfSize(7);
 		System.out.println("Level Order Traversal is :");
-		List<ArrayList<TreeNode<Integer>>> level = levelOrderTraversal(root);
+		levelOrderTraversal(root);
+	}
+
+	public static <E> void printLevelWise(TreeNode<E> root) {
+		List<ArrayList<TreeNode<E>>> level = levelOrderTraversal(root);
 
 		for (int i = 0; i < level.size(); i++) {
 			System.out.println("Element at level " + i + "  are " + TreeUtil.toString(level.get(i)));
-		}
+		}		
 	}
-
-	private static <E> List<ArrayList<TreeNode<E>>> levelOrderTraversal(TreeNode<E> root) {
+	public static <E> List<ArrayList<TreeNode<E>>> levelOrderTraversal(TreeNode<E> root) {
 		if (root == null) {
 			return null;
 		}
