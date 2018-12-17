@@ -15,7 +15,7 @@ public class HeightOfBinaryTree {
 		System.out.println("getHeightLevelTraversal : " + getHeightLevelTraversal(root));
 	}
 
-	private static int getHeight(TreeNode<Integer> root) {
+	public static int getHeight(TreeNode<Integer> root) {
 		if (root == null) {
 			return -1;
 		}
@@ -23,7 +23,7 @@ public class HeightOfBinaryTree {
 		return Math.max(getHeight(root.getLeft()), getHeight(root.getRight())) + 1;
 	}
 
-	private static int getHeightLevelTraversal(TreeNode<Integer> root) {
+	public static int getHeightLevelTraversal(TreeNode<Integer> root) {
 
 		if (root == null) {
 			return -1;
@@ -31,17 +31,17 @@ public class HeightOfBinaryTree {
 		Queue<TreeNode<Integer>> queue = new LinkedList<>();
 		queue.offer(root);
 		queue.offer(null);
-		int count=-1;
+		int count = -1;
 		while (!queue.isEmpty()) {
 			TreeNode<Integer> tmp = queue.poll();
 			if (tmp != null) {
-				if (tmp.getLeft()!=null) {
+				if (tmp.getLeft() != null) {
 					queue.offer(tmp.getLeft());
 				}
-				if (tmp.getRight()!=null) {
+				if (tmp.getRight() != null) {
 					queue.offer(tmp.getRight());
 				}
-			}else {
+			} else {
 				if (!queue.isEmpty()) {
 					queue.offer(null);
 				}
