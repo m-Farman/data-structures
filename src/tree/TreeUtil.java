@@ -3,6 +3,7 @@ package tree;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 public class TreeUtil {
@@ -45,4 +46,34 @@ public class TreeUtil {
 	public static <E> String toString(List<TreeNode<E>> list) {
 		return list.stream().map(n -> String.valueOf(n.getData())).collect(Collectors.joining(", ", "[", "]"));
 	}
+
+	public static TreeNode<Integer> createBST(int size, int maxValue, int minValue) {
+		TreeNode<Integer> root = null;
+		for (int i = 1; i <= size; i++) {
+			int data = ThreadLocalRandom.current().nextInt(minValue, maxValue);
+			TreeNode<Integer> node = new TreeNode<Integer>(data, null, null);
+			if (i == 1) {
+				root = node;
+				continue;
+			}
+			insertIntoBST(root, node);
+		}
+
+		return root;
+	}
+
+	private static TreeNode<Integer> insertIntoBST(TreeNode<Integer> root, TreeNode<Integer> node) {
+		if (root == null) {
+			root = node;
+			return root;
+		} else {
+			if (node.getData() < root.getData()) {
+				root.setLeft(insertIntoBST(root.getLeft(), node));
+			} else if (node.getData() > root.getData()) {
+				root.setRight(insertIntoBST(root.getRight(), node));
+			}
+		}
+		return root;
+	}
+
 }
