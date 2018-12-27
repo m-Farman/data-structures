@@ -47,7 +47,7 @@ public class TreeUtil {
 		return list.stream().map(n -> String.valueOf(n.getData())).collect(Collectors.joining(", ", "[", "]"));
 	}
 
-	public static TreeNode<Integer> createBST(int size, int maxValue, int minValue) {
+	public static TreeNode<Integer> createRandomBST(int size, int maxValue, int minValue) {
 		TreeNode<Integer> root = null;
 		for (int i = 1; i <= size; i++) {
 			int data = ThreadLocalRandom.current().nextInt(minValue, maxValue);
@@ -56,6 +56,19 @@ public class TreeUtil {
 				root = node;
 				continue;
 			}
+			insertIntoBST(root, node);
+		}
+
+		return root;
+	}
+
+	public static TreeNode<Integer> createBstFromInput(Integer... nodes) {
+		if (nodes.length == 0) {
+			return null;
+		}
+		TreeNode<Integer> root = new TreeNode<Integer>(nodes[0], null, null);
+		for (int i = 1; i < nodes.length; i++) {
+			TreeNode<Integer> node = new TreeNode<Integer>(nodes[i], null, null);
 			insertIntoBST(root, node);
 		}
 
