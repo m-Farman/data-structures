@@ -10,10 +10,15 @@ public class CheckIfGivenTreeIsBst {
 		boolean isBst = isBst1(root);
 		System.out.println("isBst : " + isBst);
 		System.out.println("isBst : " + isBst2(root));
+		System.out.println("isBst : " + isBstUsingMinMax(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
+		System.out.println("isBst : " + isBstUsingInorderTraversal(root));
+
 	}
 
+	/********************************************************************************/
 	/*
 	 * this soln return wrong result when subchild is greater than grandparent node
+	 * complexity =O(n)
 	 */
 	private static boolean isBst1(TreeNode<Integer> root) {
 		if (root == null) {
@@ -34,10 +39,11 @@ public class CheckIfGivenTreeIsBst {
 		return true;
 	}
 
+	/********************************************************************************/
 	/*
 	 * this soln check if the current node is max in it leftsubtree and min in its
 	 * rightsubtree . this solve the problem which is not addressed by
-	 * isBst1(TreeNode<Integer> root) \
+	 * isBst1(TreeNode<Integer> root) * complexity =O(n^2)
 	 */
 	private static boolean isBst2(TreeNode<Integer> root) {
 		if (root == null) {
@@ -79,4 +85,41 @@ public class CheckIfGivenTreeIsBst {
 		}
 		return max(root.getLeft());
 	}
+
+	/********************************************************************************/
+
+	/* No need to explicitly finding finding min and max in below approach */
+	private static boolean isBstUsingMinMax(TreeNode<Integer> root, int min, int max) {
+		if (root == null) {
+			return true;
+		}
+
+		return (root.getData() > min && root.getData() < max && isBstUsingMinMax(root.getLeft(), min, root.getData())
+				&& isBstUsingMinMax(root.getRight(), root.getData(), max));
+	}
+
+	/********************************************************************************/
+
+	/*
+	 * below method leverage inorder traversal for checking BST but uses extra
+	 * variable to track the previous data for checking
+	 */
+	private static int previous = 0;
+
+	private static boolean isBstUsingInorderTraversal(TreeNode<Integer> root) {
+		if (root == null) {
+			return true;
+		}
+
+		isBstUsingInorderTraversal(root.getLeft());
+		if (root.getData() < previous) {
+			return false;
+		}
+		previous = root.getData();
+		isBstUsingInorderTraversal(root.getRight());
+
+		return true;
+	}
+
+	/********************************************************************************/
 }
