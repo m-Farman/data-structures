@@ -110,15 +110,16 @@ public class CheckIfGivenTreeIsBst {
 		if (root == null) {
 			return true;
 		}
+		if (!isBstUsingInorderTraversal(root.getLeft())) {
+			return false;
+		}
 
-		isBstUsingInorderTraversal(root.getLeft());
 		if (root.getData() < previous) {
 			return false;
 		}
 		previous = root.getData();
-		isBstUsingInorderTraversal(root.getRight());
 
-		return true;
+		return isBstUsingInorderTraversal(root.getRight());
 	}
 
 	/********************************************************************************/
