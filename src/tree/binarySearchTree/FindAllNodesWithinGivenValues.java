@@ -6,7 +6,7 @@ import java.util.List;
 import tree.TreeNode;
 import tree.TreeUtil;
 
-public class FindAllNodesWithGivenValues {
+public class FindAllNodesWithinGivenValues {
 
 	public static void main(String[] args) {
 		TreeNode<Integer> root = TreeUtil.createBstFromInput(1, 3, 6, 7, 8, 9, 12, 23, 56, 89);
