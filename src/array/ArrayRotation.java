@@ -8,7 +8,8 @@ public class ArrayRotation {
 
 		int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 		System.out.println(Arrays.toString(arr));
-		arr = rotate(arr, 3);
+//		arr = rotate(arr, 3);
+		rotationUsingReversal(arr, 3);
 		System.out.println(Arrays.toString(arr));
 	}
 
@@ -35,6 +36,12 @@ public class ArrayRotation {
 
 		return arr;
 	}
+	/*output
+	 * 
+	[1, 2, 3, 4, 5, 6, 7, 8, 9]
+	[7, 8, 9, 7, 8, 9, 1, 2, 3]
+
+	 * */
 
 	public static int gcd(int a, int b) {
 
@@ -44,10 +51,24 @@ public class ArrayRotation {
 
 		return gcd(b, a % b);
 	}
+	
+	public static int[] rotationUsingReversal(int[] arr, int times) {
+		reverseArray(arr, 0, times - 1);
+		reverseArray(arr, times, arr.length - 1);
+		reverseArray(arr, 0, arr.length - 1);
+		return arr;
+	}
+
+	private static void reverseArray(int[] arr, int start, int end) {
+
+		int tmp;
+		while (start < end) {
+			tmp = arr[start];
+			arr[start] = arr[end];
+			arr[end] = tmp;
+			start++;
+			end--;
+		}
+	}
 }
 
-/*output
- * 
-[1, 2, 3, 4, 5, 6, 7, 8, 9]
-[7, 8, 9, 7, 8, 9, 1, 2, 3]
- * */
