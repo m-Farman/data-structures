@@ -33,7 +33,7 @@ public class BreadthFirstSeachTraversal {
 			V vertex = queue.poll();
 			bfs.add(vertex);
 			for (V w : graph.getAdjacentVertices(vertex)) {
-				/* check if vertex has been visited and also the level in case of duplicate */
+				/* check if vertex has been visited*/
 				if (!visited.contains(w)) {
 					visited.add(w);
 					queue.add(w);
