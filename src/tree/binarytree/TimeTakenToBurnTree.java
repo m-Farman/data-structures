@@ -20,28 +20,28 @@ public class TimeTakenToBurnTree {
 
 	}
 
-	private static int find(TreeNode<Integer> root, int source, int time) {
+	private static int find(TreeNode<Integer> root, int source, int sourceDepth) {
 
 		if (root == null) {
 			return -1;
 		}
 
 		if (root.getData() == source) {
-			time = getDepth(root);
+			sourceDepth = getDepth(root);
 			return 0;
 		}
 
-		int left = find(root.getLeft(), source, time);
+		int left = find(root.getLeft(), source, sourceDepth);
 		if (left != -1) {
 			int rightDepth = getDepth(root.getRight()) + 1;
-			max = Math.max(rightDepth + left + 1, time);
+			max = Math.max(rightDepth + left + 1, sourceDepth);
 			return left + 1;
 		}
 
-		int right = find(root.getRight(), source, time);
+		int right = find(root.getRight(), source, sourceDepth);
 		if (right != -1) {
 			int leftDepth = getDepth(root.getRight()) + 1;
-			max = Math.max(leftDepth + right + 1, time);
+			max = Math.max(leftDepth + right + 1, sourceDepth);
 			return right + 1;
 		}
 
