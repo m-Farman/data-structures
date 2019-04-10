@@ -40,4 +40,7 @@ public class Graph<V> {
 		return vertexCount;
 	}
 
+	public List<V> getVertices() {
+		return Collections.unmodifiableList(vertices);
+	}
 }

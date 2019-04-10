@@ -28,6 +28,17 @@ public abstract class GraphUtil {
 		return g;
 	}
 
+	public static Graph<Integer> getDAG() {
+		Graph<Integer> g = new Graph<>(4);
+		g.addEdge(5, 2);
+		g.addEdge(5, 0);
+		g.addEdge(4, 0);
+		g.addEdge(4, 1);
+		g.addEdge(2, 3);
+		g.addEdge(3, 1);
+		return g;
+	}
+
 	public static Graph<Character> getCharGraph() {
 		Graph<Character> g = new Graph<Character>(4);
 		g.addEdge('a', 'b');
