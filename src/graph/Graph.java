@@ -1,21 +1,22 @@
 package graph;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Graph<V> {
 
 	private int vertexCount;
-	private List<V> vertices;
+	private Set<V> vertices;
 	private Map<V, LinkedList<V>> adj;
 
 	public Graph(int size) {
 		vertexCount = size;
-		vertices = new ArrayList<>(size);
+		vertices = new HashSet<>(size);
 		adj = new HashMap<>(size);
 	}
 
@@ -23,6 +24,7 @@ public class Graph<V> {
 		if (!adj.containsKey(u)) {
 			adj.put(u, new LinkedList<>());
 			vertices.add(u);
+			vertices.add(w);
 		}
 		adj.get(u).add(w);
 		return this;
@@ -40,7 +42,7 @@ public class Graph<V> {
 		return vertexCount;
 	}
 
-	public List<V> getVertices() {
-		return Collections.unmodifiableList(vertices);
+	public Set<V> getVertices() {
+		return Collections.unmodifiableSet(vertices);
 	}
 }

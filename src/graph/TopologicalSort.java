@@ -1,9 +1,8 @@
 package graph;
 
 import java.util.HashSet;
-import java.util.List;
+import java.util.Set;
 import java.util.Stack;
-import java.util.stream.Collectors;
 
 public class TopologicalSort {
 
@@ -14,7 +13,7 @@ public class TopologicalSort {
 
 	private static void sort(Graph<Integer> graph) {
 
-		List<Integer> vertices = graph.getVertices();
+		Set<Integer> vertices = graph.getVertices();
 		HashSet<Integer> visited = new HashSet<>(graph.size());
 		Stack<Integer> visitedOrder = new Stack<>();
 		for (Integer vertex : vertices) {

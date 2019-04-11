@@ -29,7 +29,7 @@ public abstract class GraphUtil {
 	}
 
 	public static Graph<Integer> getDAG() {
-		Graph<Integer> g = new Graph<>(4);
+		Graph<Integer> g = new Graph<>(6);
 		g.addEdge(5, 2);
 		g.addEdge(5, 0);
 		g.addEdge(4, 0);
